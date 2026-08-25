@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>声迹 · Voice Chat</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="brand"><span class="brand-mark">声</span><span>声迹</span></div>
+      <span id="health" class="status">正在检查服务…</span>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">LOCAL VOICE · AI CONVERSATION</p>
+      <h1>让文字，带着熟悉的声音回来。</h1>
+      <p class="lead">录制约 15 秒清晰人声，创建仅保存在本机的音色。之后可以输入文字，或直接用麦克风与 AI 对话。</p>
+    </section>
+
+    <section id="setup" class="panel setup-grid">
+      <div>
+        <span class="step">01</span>
+        <h2>创建音色</h2>
+        <p class="hint">在安静环境中，用自然语气连续说话。避免音乐、混响和多人声音。</p>
+        <div class="recorder">
+          <button id="record-reference" class="record-button" type="button"><span class="dot"></span><b>开始录制</b></button>
+          <div class="meter"><span id="reference-progress"></span></div>
+          <time id="reference-time">00:00 / 00:15</time>
+        </div>
+        <label class="upload-label">或者上传 WAV / MP3
+          <input id="reference-file" type="file" accept="audio/*">
+        </label>
+      </div>
+      <div class="setup-actions">
+        <label class="consent">
+          <input id="consent" type="checkbox">
+          <span>我确认这是我本人的声音，或已获得声音所有者对克隆及 AI 对话用途的明确授权。</span>
+        </label>
+        <button id="create-profile" class="primary" disabled>创建这个音色 <span>→</span></button>
+        <p id="setup-message" class="message"></p>
+      </div>
+    </section>
+
+    <section id="studio" class="studio hidden">
+      <aside class="voice-card">
+        <div class="orb"><i></i><i></i><i></i><i></i></div>
+        <span class="ready-badge">音色已就绪</span>
+        <h2>我的专属音色</h2>
+        <p id="profile-meta">参考音频 15.0 秒</p>
+        <label>朗读语言
+          <select id="language">
+            <option value="zh-cn">中文</option><option value="en">English</option>
+            <option value="ja">日本語</option><option value="ko">한국어</option>
+            <option value="fr">Français</option><option value="de">Deutsch</option>
+            <option value="es">Español</option><option value="it">Italiano</option>
+            <option value="pt">Português</option><option value="ru">Русский</option>
+          </select>
+        </label>
+        <button id="reset-profile" class="ghost">重新录制音色</button>
+      </aside>
+
+      <section class="chat-panel">
+        <div class="chat-heading"><div><span class="step">02</span><h2>开始对话</h2></div><button id="clear-chat" class="text-button">清空上下文</button></div>
+        <div id="messages" class="messages">
+          <div class="empty-state"><span>⌁</span><p>写下一句话，或点击麦克风开始说话</p></div>
+        </div>
+        <form id="chat-form" class="composer">
+          <button id="mic-button" class="mic" type="button" aria-label="录音">●</button>
+          <textarea id="chat-input" rows="1" maxlength="4000" placeholder="输入想说的话…"></textarea>
+          <button id="send-button" class="send" type="submit" aria-label="发送">↑</button>
+        </form>
+        <p id="chat-status" class="chat-status"></p>
+      </section>
+    </section>
+  </main>
+  <script src="/assets/app.js"></script>
+</body>
+</html>
+

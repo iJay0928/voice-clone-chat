@@ -1,0 +1,9 @@
+-r requirements.txt
+# XTTS works best with Python 3.10 or 3.11. PyTorch may be installed separately
+# from https://pytorch.org/get-started/locally/ to match your CUDA version.
+coqui-tts[codec]>=0.25,<1
+pypinyin>=0.53,<1
+transformers>=4.57,<5
+faster-whisper>=1.1,<2
+torch>=2.2
+torchaudio>=2.2
